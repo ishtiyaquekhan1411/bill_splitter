@@ -1,0 +1,16 @@
+.container
+  .row.justify-content-center
+    .col-10
+      = render 'shared/errors', obj: @bill
+      = form_with(model: @bill, url: group_bills_path(group_id: params[:group_id]), class: 'shadow p-3 mb-3 bg-info rounded', local:true)  do |f|
+        .form-group.row
+          = f.label :title, class: 'col-2 col-form-label text-light'
+          .col-10
+            = f.text_field :title, class:'form-control shadow rounded'
+        .form-group.row
+          = f.label :amount, class: 'col-2 col-form-label text-light'
+          .col-10
+            = f.number_field :amount, class:'form-control shadow rounded'
+        .form-group.row.justify-content-center
+          = f.submit t('general.submit'), class: 'btn btn-outline-light btn-lg'
+    = link_to '[ Cancel and return to Membership listing ]', groups_path, class: 'text-info'

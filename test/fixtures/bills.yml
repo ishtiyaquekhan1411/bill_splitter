@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: bills
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  amount     :float
+#  author_id  :integer          not null
+#  group_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  title: MyString
+  amount: 1.5
+  user: one
+  group: one
+
+two:
+  title: MyString
+  amount: 1.5
+  user: two
+  group: two

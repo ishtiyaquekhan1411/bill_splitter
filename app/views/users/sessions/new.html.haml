@@ -1,0 +1,17 @@
+%h1.text-center.mt-4 Login
+.container
+  .col-10
+  .row.justify-content-center
+    .col-10
+      = form_with(scope: :session, url: users_login_path, class: 'shadow p-3 mb-3 bg-info rounded',local:true)  do |user|
+        .form-group.row
+          = user.label :email, class: 'col-2 col-form-label text-light'
+          .col-10
+            = user.email_field :email, class: 'form-control shadow rounded', placeholder: 'Enter your email address'
+        .form-group.row
+          = user.label :password, class: 'col-2 col-form-label text-light'
+          .col-10
+            = user.password_field :password, class: 'form-control shadow rounded', placeholder: 'Enter your Password'
+        .form-group.row.justify-content-center
+          = user.submit 'Login' , class: 'btn btn-outline-light btn-lg'
+    = link_to '[ Cancel and return to Group Listing ]', groups_path, class: 'text-info'

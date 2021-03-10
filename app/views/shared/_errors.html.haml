@@ -1,0 +1,4 @@
+- if obj.errors.any?
+  .alert.alert-danger.alert-dismissible.fade.show{role: 'alert'}
+    = obj.errors.full_messages.join(', ')
+

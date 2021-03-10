@@ -1,0 +1,23 @@
+.container
+  .row.d-flex.justify-content-center
+    .ml-4
+      = link_to 'Add new Member', new_group_membership_path(group_id: @group.id), class: 'btn btn-outline-success'
+    .ml-4
+      = link_to 'Add new Bill', new_group_bill_path(group_id: @group.id), class: 'btn btn-outline-success'
+  .row.d-flex.justify-content-center
+    - @members.each do |member|
+      .col-8.mt-4
+        .card.text-center.shadow.mb-5.bg-white.rounded.border-primary
+          .card-header.font-italic
+            = member.name
+          .card-body.text-success
+            %p.card-text= "Amount lent: "
+            %p.card-text= "Amount owes: "
+            - if logged_in?
+              - if @group.owner == current_user
+                = link_to 'Remove Member', group_membership_path(id: @group.memberships.find_by(user_id: member.id)&.id, group_id: @group), method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure you want to remove the member' }
+          .card-footer.text-muted
+            %small
+              Joined #{time_ago_in_words(member.created_at)}ago
+.flickr_pagination.mb-4
+  = will_paginate @members, container: false

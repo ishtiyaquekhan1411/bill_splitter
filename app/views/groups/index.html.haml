@@ -1,0 +1,21 @@
+.container
+  .row.d-flex.justify-content-center  
+    = link_to 'Add new Group', new_group_path, class: 'btn btn-outline-success'
+  .row.d-flex.justify-content-center  
+    - @groups.each do |group|
+      .col-8.mt-4
+        .card.text-center.shadow.mb-5.bg-white.rounded
+          .card-header.font-italic
+            = link_to group.name, group
+          .card-body
+            %p.card-text= "Memberships:#{group.members.count}"
+            = link_to 'View Group Details', group, class: 'btn btn-outline-success'
+            - if logged_in?
+              - if group.owner == current_user
+                = link_to 'Delete Profile', group_path(current_user), method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure you want to delete the group and associated group member?' }
+          .card-footer.text-muted
+            %small
+              Joined #{time_ago_in_words(group.created_at)}ago
+.flickr_pagination.mb-4
+  = will_paginate @groups, container: false
+

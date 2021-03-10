@@ -1,0 +1,32 @@
+en:
+  general:
+    sign_up: Signup
+    logged_in_required: You must be Logged in to perform this action
+    submit: Submit
+    access_denied: Access Denied
+  users:
+    sessions:
+      account_already_logged_in: You are already logged in.
+      create:
+        logged_in_successfully: Logged in successfully
+        unable_to_login: There was something wrong with your login details
+      destroy:
+        signed_out: Signed out successfully.
+    registrations:
+      create:
+        signed_up_successfully: "Welcome to the BillSplit %{name}, you have successfully signed up"
+  groups:
+    destroy:
+      group_destroyed: The group and associated details are destroyed
+      unable_to_delete: Unable to delete the group
+  memberships:
+    new:
+      member_already_added: All members are added in the group. please invite new member or ask to sign up.
+    destroy:
+      membership_destroyed: The member is removed successfully.
+      not_allowed_to_destroy_group_owner: Not allowed to remove owner of the group.
+    create:
+      member_added: New member added successfully.
+  bills:
+    create:
+      added_successfully: Bill added successfully.

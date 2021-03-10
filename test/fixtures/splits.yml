@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: splits
+#
+#  id            :integer          not null, primary key
+#  receipient_id :integer          not null
+#  amount        :float
+#  bill_id       :integer          not null
+#  type          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+one:
+  user: one
+  receipient: one
+  amount: 1.5
+  bill_id: one
+
+two:
+  user: two
+  receipient: two
+  amount: 1.5
+  bill_id: two
