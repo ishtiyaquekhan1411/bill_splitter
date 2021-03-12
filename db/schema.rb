@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_03_09_160316) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bills", force: :cascade do |t|
     t.string "title"
     t.float "amount"
-    t.integer "author_id", null: false
-    t.integer "group_id", null: false
+    t.bigint "author_id", null: false
+    t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_bills_on_author_id"
@@ -25,15 +28,15 @@ ActiveRecord::Schema.define(version: 2021_03_09_160316) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.integer "owner_id"
+    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["owner_id"], name: "index_groups_on_owner_id"
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.integer "group_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_memberships_on_group_id"
@@ -41,9 +44,9 @@ ActiveRecord::Schema.define(version: 2021_03_09_160316) do
   end
 
   create_table "splits", force: :cascade do |t|
-    t.integer "recipient_id"
+    t.bigint "recipient_id"
     t.float "amount"
-    t.integer "bill_id", null: false
+    t.bigint "bill_id", null: false
     t.string "member_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
