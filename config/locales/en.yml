@@ -4,6 +4,18 @@ en:
     logged_in_required: You must be Logged in to perform this action
     submit: Submit
     access_denied: Access Denied
+    amount_lent: "You lent amount %{amount} to this group member"
+    amount_owes: "You owes amount %{amount} from this group member"
+    no_amount_shared: "There is no pending payment / receipt from this group member."
+    remove_member: Remove Member
+    member_removal_confirmation: Are you sure you want to remove the member
+    add_new_member: Add new Member
+    add_new_bill: Add new Bill
+    bill_split: Bill Split
+    groups: Groups
+    activity: Activity
+    login: Login
+    logout: Logout
   users:
     sessions:
       account_already_logged_in: You are already logged in.

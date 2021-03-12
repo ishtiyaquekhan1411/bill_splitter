@@ -13,4 +13,4 @@
             = f.number_field :amount, class:'form-control shadow rounded'
         .form-group.row.justify-content-center
           = f.submit t('general.submit'), class: 'btn btn-outline-light btn-lg'
-    = link_to '[ Cancel and return to Membership listing ]', groups_path, class: 'text-info'
+    = link_to '[ Cancel and return to Membership listing ]', group_path(params[:group_id]), class: 'text-info'

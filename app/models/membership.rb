@@ -15,10 +15,22 @@ class Membership < ApplicationRecord
 
   validates :user_id, presence: true, uniqueness: {scope: %i[group_id user_id] }
 
-  after_destroy :destroy_associated_bills
+  before_destroy :validate_owner_of_group
+  after_destroy :destroy_associated_bill_splits
 
-  def destroy_associated_bills
-    # Bills and their dependent bill receipients.
+  private
+
+  def validate_owner_of_group
+    if user == group.owner
+      errors.add(:base, I18n.t('memberships.destroy.not_allowed_to_destroy_group_owner'))
+    end
+  end
+
+  # Deletes associated bill shares once membership is removed from the group.
+  #
+  # @return [void]
+  def destroy_associated_bill_splits
+    group.splits.where(recipient_id: user_id).destroy_all
   end
 
 end

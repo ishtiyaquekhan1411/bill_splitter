@@ -1,5 +1,0 @@
-en:
-  enumerations:
-    split_member_type:
-      payer: 'Payer'
-      receipient: 'Receipient'

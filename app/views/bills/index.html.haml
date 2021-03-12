@@ -1,0 +1,13 @@
+.container
+  - @bills.each do |bill|
+    .list-group
+      %a.list-group-item.list-group-item-action.flex-column.align-items-start{href: '#'}
+        .d-flex.w-100.justify-content-between
+          %h5.mb-1= "#{bill.author_name} has paid #{bill.amount.round(2)}"
+          %small= bill.created_at.strftime('%F')
+        - bill.splits.each do |split|
+          - unless split.recipient_id.nil?
+            %p.mb-1= "#{split.amount.round(2)} is owed by #{split.debtor_name}"
+        %small= "Group name - #{bill.group_name}"
+.flickr_pagination.mb-4
+  = will_paginate @bills, container: false

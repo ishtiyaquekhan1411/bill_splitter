@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :groups, through: :memberships, source: :group
   has_many :author_bills, foreign_key: :author_id, class_name: 'Bill'
-  has_many :splits, through: :author_bills, class_name: 'Bill'
+  has_many :splits, through: :author_bills, class_name: 'Split'
 
   scope :id_not_equals, ->(id) { where.not(id: id) }
 

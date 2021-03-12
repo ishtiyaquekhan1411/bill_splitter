@@ -3,7 +3,7 @@
 # Table name: splits
 #
 #  id            :integer          not null, primary key
-#  receipient_id :integer          not null
+#  recipient_id :integer          not null
 #  amount        :float
 #  bill_id       :integer          not null
 #  type          :string

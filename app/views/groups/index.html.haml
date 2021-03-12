@@ -1,7 +1,7 @@
 .container
   .row.d-flex.justify-content-center  
     = link_to 'Add new Group', new_group_path, class: 'btn btn-outline-success'
-  .row.d-flex.justify-content-center  
+  .row.d-flex.justify-content-center
     - @groups.each do |group|
       .col-8.mt-4
         .card.text-center.shadow.mb-5.bg-white.rounded

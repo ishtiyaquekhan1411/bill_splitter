@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 2021_03_09_160316) do
   end
 
   create_table "splits", force: :cascade do |t|
-    t.integer "receipient_id"
+    t.integer "recipient_id"
     t.float "amount"
     t.integer "bill_id", null: false
     t.string "member_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bill_id"], name: "index_splits_on_bill_id"
-    t.index ["receipient_id"], name: "index_splits_on_receipient_id"
+    t.index ["recipient_id"], name: "index_splits_on_recipient_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,5 +64,5 @@ ActiveRecord::Schema.define(version: 2021_03_09_160316) do
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
   add_foreign_key "splits", "bills"
-  add_foreign_key "splits", "users", column: "receipient_id"
+  add_foreign_key "splits", "users", column: "recipient_id"
 end

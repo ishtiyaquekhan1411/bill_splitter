@@ -3,7 +3,7 @@
 # Table name: splits
 #
 #  id            :integer          not null, primary key
-#  receipient_id :integer          not null
+#  recipient_id :integer          not null
 #  amount        :float
 #  bill_id       :integer          not null
 #  member_type          :string
@@ -14,12 +14,25 @@ class Split < ApplicationRecord
 
   validates :bill_id, presence: true
 
-  has_one :author, through: :bill
-  belongs_to :receipient,
+  belongs_to :bill
+  belongs_to :recipient,
     class_name: 'User',
-    foreign_key: :receipient_id,
+    foreign_key: :recipient_id,
     primary_key: :id,
     optional: true
-  belongs_to :bill
+  has_one :author, through: :bill
+
+  after_destroy :update_associated_bill_amount
+
+  delegate :name, to: :recipient, prefix: :debtor, allow_nil: true
+
+  private
+
+  # Updates bill amount with difference in shares.
+  #
+  # @return [void]
+  def update_associated_bill_amount
+    bill.update_attribute(:amount, bill.amount - amount)
+  end
 
 end

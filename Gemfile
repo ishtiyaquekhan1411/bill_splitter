@@ -9,7 +9,6 @@ gem 'rails', '~> 6.1.3'
 gem 'annotate'
 gem 'awesome_print', '~> 1.8'
 gem 'bootstrap'
-gem 'enumerate_it'
 gem 'haml-rails'
 gem 'will_paginate', '~> 3.1.0'
 # Use sqlite3 as the database for Active Record

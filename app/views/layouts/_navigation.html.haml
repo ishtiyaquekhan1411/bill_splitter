@@ -1,21 +1,21 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+%nav.navbar.navbar-expand-lg.bg-secondary.navbar-dark.bg-dark
   .container
-    = link_to 'BillSplit', root_path, class: 'navbar-brand'
+    = link_to t('general.bill_split'), root_path, class: 'navbar-brand'
     %button.navbar-toggler{'aria-controls' => 'navbarSupportedContent', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation', 'data-target' => '#navbarSupportedContent', 'data-toggle' => 'collapse', type: 'button'}
       %span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
       %ul.navbar-nav.mr-auto
         - if logged_in?
           %li.nav-item.active
-            = link_to 'Groups', groups_path, class: 'nav-link'
+            = link_to t('general.groups'), groups_path, class: 'nav-link'
           %li.nav-item.active
-            = link_to 'Activity', activities_path, class: 'nav-link'
-        %ul.navbar-nav.ml-auto
+            = link_to t('general.activity'), activities_path, class: 'nav-link'
+      %ul.navbar-nav.ml-auto
         - if logged_in?
           %li.nav-item
-            = link_to 'Logout', users_logout_path, method: :delete, class:'btn btn-danger'
+            = link_to t('general.logout'), users_logout_path, method: :delete, class:'btn btn-danger'
         - else  
           %li.nav-item
-            = link_to 'Login', users_login_path, class: 'btn btn-secondary mb-2 mr-2'
+            = link_to t('general.login'), users_login_path, class: 'btn btn-secondary mb-2 mr-2'
           %li.nav-item
-            = link_to 'Sign Up', users_signup_path, class: 'btn btn-primary'
+            = link_to t('general.sign_up'), users_signup_path, class: 'btn btn-primary'

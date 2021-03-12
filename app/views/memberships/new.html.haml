@@ -9,4 +9,4 @@
             = f.select :user_id, members_not_included_in_group(params[:group_id]), {}, { class: 'form form-group form-control' }
         .form-group.row.justify-content-center
           = f.submit t('general.submit'), class: 'btn btn-outline-light btn-lg'
-    = link_to '[ Cancel and return to Group listing ]', groups_path, class: 'text-info'
+    = link_to '[ Cancel and return to Membership listing ]', group_path(params[:group_id]), class: 'text-info'
