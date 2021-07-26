@@ -9,3 +9,4 @@ phrase:
   pull:
     targets:
      - file: ./config/locales/es.yml
+     - file_format: yml
