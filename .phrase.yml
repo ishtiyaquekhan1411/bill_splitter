@@ -1,0 +1,11 @@
+phrase:
+  project_id: 0aa88cceb79b4cf7cd525201b1ba53ea
+  push:
+    sources:
+    - file: ./config/locales/*.yml
+      params:
+        update_translations: true
+        file_format: yml
+  pull:
+    targets:
+     - file: ./config/locales/es.yml
